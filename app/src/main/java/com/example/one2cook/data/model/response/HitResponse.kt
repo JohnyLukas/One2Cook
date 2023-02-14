@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Hit(
+data class HitResponse(
     @Json(name = "recipe")
-    val recipe: Recipe
+    val recipeResponse: RecipeResponse? = null
 )

@@ -1,10 +1,10 @@
-package com.example.one2cook.data.model.response
+package com.example.one2cook.presentation.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class RegularImage(
+data class ThumbnailImageUI(
     @Json(name = "height")
     val height: Int,
     @Json(name = "url")

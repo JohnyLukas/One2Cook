@@ -4,11 +4,11 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Images(
+data class ImagesResponse(
     @Json(name = "REGULAR")
-    val regularImage: RegularImage,
+    val regularImageResponse: RegularImageResponse? = null,
     @Json(name = "SMALL")
-    val smallImage: SmallImage,
+    val smallImageResponse: SmallImageResponse? = null,
     @Json(name = "THUMBNAIL")
-    val thumbnailImage: ThumbnailImage
+    val thumbnailImageResponse: ThumbnailImageResponse? = null
 )
