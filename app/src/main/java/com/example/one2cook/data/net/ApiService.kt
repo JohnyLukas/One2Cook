@@ -1,3 +1,9 @@
 package com.example.one2cook.data.net
 
-interface ApiService
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface ApiService {
+    @GET("?type=public")
+    suspend fun searchRecipes(@Query("q") query: String)
+}
