@@ -1,8 +1,8 @@
 package com.example.one2cook.di
 
 import com.example.one2cook.BuildConfig
-import com.example.one2cook.data.net.ApiService
-import com.example.one2cook.data.net.RecipesInterceptor
+import com.example.one2cook.data.net.SearchRecipeApi
+import com.example.one2cook.data.net.SearchRecipeInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,12 +18,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRecipesInterceptor() = RecipesInterceptor()
+    fun provideRecipesInterceptor() = SearchRecipeInterceptor()
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(recipesInterceptor: RecipesInterceptor) = OkHttpClient.Builder()
-        .addInterceptor(recipesInterceptor)
+    fun provideOkHttpClient(searchRecipeInterceptor: SearchRecipeInterceptor) = OkHttpClient.Builder()
+        .addInterceptor(searchRecipeInterceptor)
         .build()
 
     @Provides
@@ -35,10 +35,10 @@ object AppModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
-    ): ApiService = Retrofit.Builder()
+    ): SearchRecipeApi = Retrofit.Builder()
         .baseUrl(BuildConfig.BASE_URL)
         .addConverterFactory(moshiConverterFactory)
         .client(okHttpClient)
         .build()
-        .create(ApiService::class.java)
+        .create(SearchRecipeApi::class.java)
 }
