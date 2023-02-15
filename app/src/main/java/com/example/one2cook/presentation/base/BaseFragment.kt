@@ -9,7 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment(fragmentId: Int): Fragment(fragmentId) {
     abstract val viewModel: BaseViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

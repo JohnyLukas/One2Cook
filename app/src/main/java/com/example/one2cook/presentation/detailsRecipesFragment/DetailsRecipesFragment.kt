@@ -5,6 +5,6 @@ import com.example.one2cook.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailsRecipesFragment: BaseFragment() {
+class DetailsRecipesFragment: BaseFragment(1) {
     override val viewModel: DetailsRecipesViewModel by viewModels()
 }
