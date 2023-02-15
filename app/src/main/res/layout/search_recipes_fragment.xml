@@ -56,11 +56,11 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="170dp"
         android:layout_marginEnd="58dp"
+        android:contentDescription="@string/search_line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tagline"
-        app:srcCompat="@drawable/search_line"
-        android:contentDescription="search line" />
+        app:srcCompat="@drawable/search_line" />
 
     <ImageView
         android:id="@+id/magnifyingGlass"
@@ -75,32 +75,22 @@
         app:srcCompat="@drawable/ic_search"
         android:contentDescription="@string/magnifying_glass" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputBinNumberLayout"
-        style="?attr/textInputOutlinedStyle"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputNamedDishEditText"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="173dp"
+        android:layout_marginTop="187dp"
         android:layout_marginEnd="58dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/nunito_light"
         android:hint="@string/hint_search_line"
-        android:textAlignment="center"
-        app:endIconMode="clear_text"
-        app:errorEnabled="true"
-        app:errorIconDrawable="@drawable/ic_error"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tagline">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputNamedDishEditText"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:inputType="number"
-            android:textColorHint="#757575">
-
-        </com.google.android.material.textfield.TextInputEditText>
-
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputEditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
