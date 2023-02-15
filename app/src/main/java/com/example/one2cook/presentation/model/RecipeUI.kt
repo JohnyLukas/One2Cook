@@ -9,8 +9,6 @@ data class RecipeUI(
     val titleRecipe: String,
     @Json(name = "image")
     val image: String,
-    @Json(name = "images")
-    val imagesUI: ImagesUI,
     @Json(name = "source")
     val sourceRecipe: String,
     @Json(name = "url")

@@ -6,5 +6,5 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class RecipesUI(
     @Json(name = "hits")
-    val recipes: List<HitUI>
+    val recipes: List<HitUI>?
 )

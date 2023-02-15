@@ -9,8 +9,6 @@ data class RecipeResponse(
     val titleRecipe: String? = null,
     @Json(name = "image")
     val image: String? = null,
-    @Json(name = "images")
-    val imagesResponse: ImagesResponse? = null,
     @Json(name = "source")
     val sourceRecipe: String? = null,
     @Json(name = "url")
