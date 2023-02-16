@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/search_fragment_background" >
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:clickable="false"
+        android:fontFamily="@font/martel_bold"
+        android:text="@string/app_name_in_fragment"
+        android:textColor="#AB000000"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/make_delicious"
+        android:textColor="#8C000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="233dp"
+        android:clickable="true"
+        android:contentDescription="@string/search_button"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagline"
+        app:srcCompat="@drawable/ic_bookmark"
+        tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/searchLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="58dp"
+        android:contentDescription="@string/search_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagline"
+        app:srcCompat="@drawable/search_line" />
+
+    <ImageView
+        android:id="@+id/magnifyingGlass"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/searchButton"
+        app:layout_constraintEnd_toEndOf="@+id/searchButton"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/searchButton"
+        app:layout_constraintTop_toTopOf="@+id/searchButton"
+        app:srcCompat="@drawable/ic_search"
+        android:contentDescription="@string/magnifying_glass" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputNamedDishEditText"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="187dp"
+        android:layout_marginEnd="58dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/nunito_light"
+        android:hint="@string/hint_search_line"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagline">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
