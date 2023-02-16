@@ -40,7 +40,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
+    kapt {
+        correctErrorTypes true
+    }
+
 }
+
 def hiltVersion = "2.44.2"
 def retrofitVersion = "2.9.0"
 def okHttpVersion = "4.9.3"

@@ -23,6 +23,7 @@ class SearchRecipesViewModel @Inject constructor(
     val handleErrorInput: StateFlow<String?> = _handleErrorInput.asStateFlow()
 
     private val _recipesResponse: MutableStateFlow<RecipesUI?> = MutableStateFlow(null)
+    val recipesResponse: StateFlow<RecipesUI?> = _recipesResponse.asStateFlow()
 
     fun checkInputError(namedDish: String?) {
         when {
@@ -49,6 +50,10 @@ class SearchRecipesViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun clearBinResponse() {
+        _recipesResponse.value = null
     }
 
 }

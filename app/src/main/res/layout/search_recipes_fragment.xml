@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,19 +36,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="233dp"
-        android:clickable="true"
+        android:layout_marginTop="220dp"
+        android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/search_button"
-        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tagline"
-        app:srcCompat="@drawable/ic_bookmark"
-        tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+        app:srcCompat="@drawable/ic_bookmark" />
 
     <ImageView
         android:id="@+id/searchLine"
@@ -62,19 +62,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tagline"
         app:srcCompat="@drawable/search_line" />
 
-    <ImageView
+
+    <!--<ImageView
         android:id="@+id/magnifyingGlass"
         android:layout_width="34dp"
         android:layout_height="34dp"
-        android:layout_marginStart="1dp"
+        android:contentDescription="@string/magnifying_glass"
         app:layout_constraintBottom_toBottomOf="@+id/searchButton"
         app:layout_constraintEnd_toEndOf="@+id/searchButton"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/searchButton"
         app:layout_constraintTop_toTopOf="@+id/searchButton"
-        app:srcCompat="@drawable/ic_search"
-        android:contentDescription="@string/magnifying_glass" />
-
+        app:srcCompat="@drawable/ic_search" />-->
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputNamedDishEditText"
@@ -89,8 +87,6 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tagline">
-
-    </com.google.android.material.textfield.TextInputEditText>
+        app:layout_constraintTop_toBottomOf="@+id/tagline"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

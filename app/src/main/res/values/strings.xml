@@ -3,7 +3,7 @@
     <string name="app_name_in_fragment">One2cook</string>
     <string name="make_delicious">make delicious</string>
     <string name="hint_search_line">What would you like to cook?</string>
-    <string name="search_button">search button</string>
+    <string name="search_button">search</string>
     <string name="magnifying_glass">magnifying glass</string>
     <string name="search_line">search line</string>
 </resources>
