@@ -1,9 +1,12 @@
 package com.example.one2cook.data.model.response
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
+@Parcelize
 data class RecipeResponse(
     @Json(name = "label")
     val titleRecipe: String? = null,
@@ -21,4 +24,4 @@ data class RecipeResponse(
     val ingredients: List<String>? = null,
     @Json(name = "totalTime")
     val totalTime: Double? = null
-)
+) : Parcelable
