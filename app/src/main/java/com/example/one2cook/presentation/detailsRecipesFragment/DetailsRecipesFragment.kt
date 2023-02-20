@@ -14,7 +14,7 @@ import com.example.one2cook.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailsRecipesFragment: BaseFragment(1) {
+class DetailsRecipesFragment: BaseFragment(R.layout.recipe_details_fragment) {
     override val viewModel: DetailsRecipesViewModel by viewModels()
     private val binding: RecipeDetailsFragmentBinding by viewBinding()
     private val args: DetailsRecipesFragmentArgs by navArgs()
