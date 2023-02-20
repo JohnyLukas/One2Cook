@@ -1,75 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="171dp"
+    android:layout_height="161dp"
+    android:scaleType="centerCrop"
+    android:layout_gravity="center"
+    android:background="@drawable/rectangle_with_20dp_radius_white_bg_and_shadow"
+    android:elevation="7dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_marginStart="13dp"
+    android:layout_marginEnd="14dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginTop="15dp">
 
     <ImageView
         android:id="@+id/imageRecipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/image_item_list"
+        android:background="@drawable/rectangle_image_view_list_item"
         app:layout_constraintBottom_toTopOf="@+id/listItemBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image_item_list">
-
-    </ImageView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/listItemBar"
         android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:background="#2FAC6C01"
+        android:layout_height="51dp"
+        android:background="@drawable/rectangle_list_item_bar"
         android:contentDescription="@string/bar_list_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/titleRecipeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="9dp"
         android:fontFamily="@font/nunito_semibold"
         android:text="@string/title_dishes"
         android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/listItemBar" />
 
     <ImageView
         android:id="@+id/timer"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="10dp"
+        android:layout_height="11dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="13dp"
+        android:contentDescription="@string/image_timer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleRecipeTextView"
-        app:srcCompat="@drawable/ic_timer"
-        android:contentDescription="@string/image_timer" />
+        app:srcCompat="@drawable/ic_timer" />
 
     <TextView
         android:id="@+id/totalTimeCooking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/nunito_semibold"
         android:text="@string/total_time_cooking"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/timer"
-        app:layout_constraintTop_toBottomOf="@+id/titleRecipeTextView" />
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/listItemBar"
+        app:layout_constraintStart_toEndOf="@+id/timer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
