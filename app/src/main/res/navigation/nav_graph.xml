@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/searchRecipesFragment"
-        android:name="com.example.one2cook.presentation.searchRecipesFragment.SearchRecipesFragment"
+        android:name="com.example.one2cook.presentation.search.SearchRecipesFragment"
         android:label="SearchRecipesFragment"
         tools:layout="@layout/search_recipes_fragment">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/listRecipesFragment"
-        android:name="com.example.one2cook.presentation.listRecipesFragment.RecipesListFragment"
+        android:name="com.example.one2cook.presentation.list.RecipesListFragment"
         android:label="ListRecipesFragment"
         tools:layout="@layout/list_recipes_fragment">
         <argument
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsRecipesFragment"
-        android:name="com.example.one2cook.presentation.detailsRecipesFragment.DetailsRecipesFragment"
+        android:name="com.example.one2cook.presentation.details.DetailsRecipesFragment"
         android:label="DetailsRecipesFragment"
         tools:layout="@layout/recipe_details_fragment">
         <argument

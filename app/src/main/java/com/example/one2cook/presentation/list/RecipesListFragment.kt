@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.listRecipesFragment
+package com.example.one2cook.presentation.list
 
 import android.os.Bundle
 import android.view.View

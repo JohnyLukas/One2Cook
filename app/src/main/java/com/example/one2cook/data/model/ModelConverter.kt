@@ -7,7 +7,7 @@ fun RecipesResponse.toDomain() = Recipes(
         recipes = recipes?.map { it.toDomain() }
     )
 
-    fun HitResponse.toDomain() = Hits(
+    fun HitsResponse.toDomain() = Hits(
         recipe = recipeResponse?.toDomain()
     )
 

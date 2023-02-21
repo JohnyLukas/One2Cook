@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.listRecipesFragment
+package com.example.one2cook.presentation.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -41,11 +41,18 @@ class RecipesListAdapter(
                 .into(imageRecipe)
 
             titleRecipeTextView.text = hitsUI.recipeUI?.titleRecipe
-            totalTimeCooking.text = hitsUI.recipeUI?.totalTime.toString()
+            totalTimeCooking.text =
+                if (hitsUI.recipeUI?.totalTime == 0.0) {
+                    "-"
+                } else {
+                    hitsUI.recipeUI?.totalTime.toString()
+                }
 
-            root.setOnClickListener { hitsUI.recipeUI?.let { recipe ->
-                this@RecipesListAdapter.onRecipeClicked(recipe)
-            } }
+            root.setOnClickListener {
+                hitsUI.recipeUI?.let { recipe ->
+                    this@RecipesListAdapter.onRecipeClicked(recipe)
+                }
+            }
         }
     }
 

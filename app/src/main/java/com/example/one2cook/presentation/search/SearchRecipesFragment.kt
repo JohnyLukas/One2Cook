@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.searchRecipesFragment
+package com.example.one2cook.presentation.search
 
 import android.os.Bundle
 import android.view.View

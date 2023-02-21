@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.searchRecipesFragment
+package com.example.one2cook.presentation.search
 
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.viewModelScope

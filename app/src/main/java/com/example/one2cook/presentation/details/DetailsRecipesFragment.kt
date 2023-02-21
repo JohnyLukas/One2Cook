@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.detailsRecipesFragment
+package com.example.one2cook.presentation.details
 
 import android.content.Intent
 import android.net.Uri
