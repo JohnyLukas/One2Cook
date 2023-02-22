@@ -4,7 +4,12 @@ import com.example.one2cook.data.model.response.*
 import com.example.one2cook.domain.model.*
 
 fun RecipesResponse.toDomain() = Recipes(
-        recipes = recipes?.map { it.toDomain() }
+        recipes = recipes?.map { it.toDomain() },
+        nextPageLinks = nextPageLinks?.toDomain()
+    )
+
+    fun NextResponse.toDomain() = Next(
+        nextPageUrl = nextPageUrl
     )
 
     fun HitsResponse.toDomain() = Hits(

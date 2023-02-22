@@ -1,7 +1,7 @@
 package com.example.one2cook.presentation.base
 
 import androidx.lifecycle.ViewModel
-import com.example.one2cook.data.net.common.NetworkException
+import com.example.one2cook.data.network.common.NetworkException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

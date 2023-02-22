@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/search_fragment_background" >
+    android:background="@drawable/search_fragment_background">
+
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/search_button"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/tagline"
+        app:srcCompat="@drawable/ic_bookmark" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/searchButton"
+        app:layout_constraintEnd_toEndOf="@+id/searchButton"
+        app:layout_constraintStart_toStartOf="@+id/searchButton"
+        app:layout_constraintTop_toTopOf="@+id/searchButton"
+        app:srcCompat="@drawable/ic_search" />
 
     <TextView
         android:id="@+id/appName"
@@ -36,56 +58,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/search_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tagline"
-        app:srcCompat="@drawable/ic_bookmark" />
-
-    <ImageView
-        android:id="@+id/searchLine"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="175dp"
         android:layout_marginEnd="58dp"
-        android:contentDescription="@string/search_line"
+        app:cardCornerRadius="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tagline"
-        app:srcCompat="@drawable/search_line" />
+        app:layout_constraintTop_toBottomOf="@+id/appName">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputNamedDishEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/nunito_light"
+            android:gravity="center"
+            android:hint="@string/hint_search_line"
+            android:paddingHorizontal="9dp"
+            android:singleLine="true"
+            android:textColorHint="#757575" />
 
-    <ImageView
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:contentDescription="@string/magnifying_glass"
-        app:layout_constraintBottom_toBottomOf="@+id/searchButton"
-        app:layout_constraintEnd_toEndOf="@+id/searchButton"
-        app:layout_constraintStart_toStartOf="@+id/searchButton"
-        app:layout_constraintTop_toTopOf="@+id/searchButton"
-        app:srcCompat="@drawable/ic_search" />
+    </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputNamedDishEditText"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="187dp"
-        android:layout_marginEnd="58dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/nunito_light"
-        android:hint="@string/hint_search_line"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tagline"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

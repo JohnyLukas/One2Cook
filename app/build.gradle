@@ -62,6 +62,7 @@ def glideVersion = "4.14.2"
 
 dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
+    implementation 'androidx.paging:paging-common-ktx:3.1.1'
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

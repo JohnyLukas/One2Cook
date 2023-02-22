@@ -1,4 +1,4 @@
-package com.example.one2cook.domain.model
+package com.example.one2cook.data.model.response
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
@@ -7,9 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-data class Recipes(
-    @Json(name = "hits")
-    val recipes: List<Hits>?,
-    @Json(name = "_links")
-    val nextPageLinks: Next?
+data class NextResponse(
+    @Json(name = "href")
+    val nextPageUrl: String? = null
 ) : Parcelable

@@ -3,9 +3,6 @@ package com.example.one2cook.presentation.list
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +11,6 @@ import com.example.one2cook.R
 import com.example.one2cook.databinding.ListRecipesFragmentBinding
 import com.example.one2cook.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RecipesListFragment : BaseFragment(R.layout.list_recipes_fragment) {
@@ -39,10 +35,5 @@ class RecipesListFragment : BaseFragment(R.layout.list_recipes_fragment) {
         }
         binding.recipeGrid.adapter = recipesListAdapter
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-
-            }
-        }
     }
 }

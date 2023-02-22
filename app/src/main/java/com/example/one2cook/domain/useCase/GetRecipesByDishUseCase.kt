@@ -1,6 +1,6 @@
 package com.example.one2cook.domain.useCase
 
-import com.example.one2cook.data.net.SearchRecipeRepository
+import com.example.one2cook.data.network.SearchRecipeRepository
 import com.example.one2cook.domain.model.Recipes
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
