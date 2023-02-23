@@ -21,8 +21,8 @@
         android:label="ListRecipesFragment"
         tools:layout="@layout/list_recipes_fragment">
         <argument
-            android:name="recipesList"
-            app:argType="com.example.one2cook.presentation.model.RecipesUI" />
+            android:name="dishName"
+            app:argType="string" />
         <action
             android:id="@+id/actionListRecipesToDetailsRecipes"
             app:destination="@id/detailsRecipesFragment" />

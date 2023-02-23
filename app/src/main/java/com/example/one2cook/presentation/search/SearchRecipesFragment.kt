@@ -24,14 +24,6 @@ class SearchRecipesFragment: BaseFragment(R.layout.search_recipes_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?): Unit = with(binding) {
         super.onViewCreated(view, savedInstanceState)
 
-        fun showRecipes(recipesList: RecipesUI)  {
-            findNavController().navigate(
-                SearchRecipesFragmentDirections.actionSearchFragmentToListFragment(
-                    recipesList
-                )
-            )
-        }
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.handleErrorInput.collect { exception ->
@@ -46,11 +38,15 @@ class SearchRecipesFragment: BaseFragment(R.layout.search_recipes_fragment) {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.recipesResponse.collect { recipes ->
-                    recipes?.let {
-                        showRecipes(recipes)
+                viewModel.namedDish.collect { namedDish ->
+                    namedDish?.let {
+                        findNavController().navigate(
+                            SearchRecipesFragmentDirections.actionSearchFragmentToListFragment(
+                                namedDish
+                            )
+                        )
                     }
-                    viewModel.clearBinResponse()
+                    viewModel.clearNamedDish()
                     textInputNamedDishEditText.text?.clear()
                 }
             }

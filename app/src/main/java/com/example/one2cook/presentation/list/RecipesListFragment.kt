@@ -31,7 +31,7 @@ class RecipesListFragment : BaseFragment(R.layout.list_recipes_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recipeGrid.layoutManager = GridLayoutManager(context, 2)
-
+        viewModel.getRecipesByNamedDish(args.dishName)
         args.recipesList.recipes?.let { recipesList ->
             recipesListAdapter.updateDataSet(recipesList)
         }
