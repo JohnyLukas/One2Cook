@@ -43,17 +43,26 @@ class RecipesListViewModel @Inject constructor(
         }
     }
 
-    fun getNewListRecipes(nameDish: String, cont: String) {
+    // Нужно понять как сюда положить _cont из Next.nextPageUrl
+    fun getNewListRecipes(nameDish: String, conts: String) {
+        val cont = recipesResponse.value?.nextPageLinks?.nextPageUrl ?: "kal"
+
         viewModelScope.launch {
             getNextRecipesPageUseCase.invoke(
                 param = GetNextRecipesPageUseCaseParam(nameDish = nameDish, cont = cont)
             ).collect { result ->
                 result.onSuccess { recipes ->
-
+                    _recipesResponse.value = recipes.toUI()
                 }.onFailure { throwable ->
-
+                    _handleError.value = throwable.localizedMessage?.let {
+                        NetworkException(
+                            title = throwable.message.toString(),
+                            description = throwable.toString()
+                        )
+                    }
                 }
             }
         }
     }
+
 }
