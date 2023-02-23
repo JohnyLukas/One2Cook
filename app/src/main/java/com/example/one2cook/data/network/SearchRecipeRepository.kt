@@ -9,4 +9,11 @@ class SearchRecipeRepository @Inject constructor(
 ) {
     suspend fun searchRecipe(query: String): Recipes =
         searchRecipeApi.searchRecipes(query).toDomain()
+
+    suspend fun nextRecipesPage(query: String, cont: String): Recipes =
+        searchRecipeApi.nextRecipesPage(
+            query = query,
+            cont = cont
+        ).toDomain()
+
 }
