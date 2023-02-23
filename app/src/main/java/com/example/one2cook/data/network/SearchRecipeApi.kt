@@ -1,4 +1,4 @@
-package com.example.one2cook.data.net
+package com.example.one2cook.data.network
 
 import com.example.one2cook.data.model.response.RecipesResponse
 import retrofit2.http.GET

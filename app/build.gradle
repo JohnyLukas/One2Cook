@@ -58,9 +58,11 @@ def navGraphVersion = "2.5.3"
 def bindingDelegateVersion = "1.5.6"
 def roomVersion = "2.5.0"
 def materialVersion = "1.8.0"
+def glideVersion = "4.14.2"
 
 dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
+    implementation 'androidx.paging:paging-common-ktx:3.1.1'
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -89,6 +91,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     implementation "com.google.android.material:material:$materialVersion"
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

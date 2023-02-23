@@ -1,8 +1,8 @@
 package com.example.one2cook.di
 
 import com.example.one2cook.BuildConfig
-import com.example.one2cook.data.net.SearchRecipeApi
-import com.example.one2cook.data.net.SearchRecipeInterceptor
+import com.example.one2cook.data.network.SearchRecipeApi
+import com.example.one2cook.data.network.SearchRecipeInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

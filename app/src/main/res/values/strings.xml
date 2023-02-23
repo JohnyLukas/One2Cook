@@ -6,4 +6,15 @@
     <string name="search_button">search</string>
     <string name="magnifying_glass">magnifying glass</string>
     <string name="search_line">search line</string>
+    <string name="image_item_list">image</string>
+    <string name="title_dishes">Title dishes</string>
+    <string name="total_time_cooking">Total Time Cooking</string>
+    <string name="bar_list_item">Bar</string>
+    <string name="image_timer">image timer</string>
+    <string name="cuisine_type">Cuisine type</string>
+    <string name="cooking_time">Cooking time: %1$s</string>
+    <string name="calories">Calories: %1$s</string>
+    <string name="dish_image">dish image</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="source">Source: %1$s</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.one2cook.data.net.common
+package com.example.one2cook.data.network.common
 
 data class NetworkException (
     val title: String,

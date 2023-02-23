@@ -1,8 +1,8 @@
-package com.example.one2cook.presentation.searchRecipesFragment
+package com.example.one2cook.presentation.search
 
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.viewModelScope
-import com.example.one2cook.data.net.common.NetworkException
+import com.example.one2cook.data.network.common.NetworkException
 import com.example.one2cook.domain.model.toUI
 import com.example.one2cook.domain.useCase.GetListRecipeUseCase
 import com.example.one2cook.domain.useCase.GetListRecipeUseCaseParam

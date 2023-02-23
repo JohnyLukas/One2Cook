@@ -8,7 +8,32 @@
 
     <fragment
         android:id="@+id/searchRecipesFragment"
-        android:name="com.example.one2cook.presentation.searchRecipesFragment.SearchRecipesFragment"
+        android:name="com.example.one2cook.presentation.search.SearchRecipesFragment"
         android:label="SearchRecipesFragment"
-        tools:layout="@layout/search_recipes_fragment"/>
+        tools:layout="@layout/search_recipes_fragment">
+        <action
+            android:id="@+id/actionSearchFragmentToListFragment"
+            app:destination="@id/listRecipesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listRecipesFragment"
+        android:name="com.example.one2cook.presentation.list.RecipesListFragment"
+        android:label="ListRecipesFragment"
+        tools:layout="@layout/list_recipes_fragment">
+        <argument
+            android:name="recipesList"
+            app:argType="com.example.one2cook.presentation.model.RecipesUI" />
+        <action
+            android:id="@+id/actionListRecipesToDetailsRecipes"
+            app:destination="@id/detailsRecipesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsRecipesFragment"
+        android:name="com.example.one2cook.presentation.details.DetailsRecipesFragment"
+        android:label="DetailsRecipesFragment"
+        tools:layout="@layout/recipe_details_fragment">
+        <argument
+            android:name="recipe"
+            app:argType="com.example.one2cook.presentation.model.RecipeUI" />
+    </fragment>
 </navigation>
