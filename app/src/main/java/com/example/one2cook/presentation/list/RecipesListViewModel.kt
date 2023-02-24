@@ -32,7 +32,7 @@ class RecipesListViewModel @Inject constructor(
                 param = GetListRecipeUseCaseParam(namedDish = namedDish)
             ).collect { result ->
                 result.onSuccess { recipes ->
-                    nextPageUrl = recipes.toUI().nextPageLinks?.nextPageUrl
+                    nextPageUrl = recipes.toUI().nextPageLink?.nextPage?.nextPageUrl
                     _recipesList.value = recipes.recipes?.map { it.toUI() }
                 }.onFailure { throwable ->
                     _handleError.value = throwable.localizedMessage?.let {
@@ -55,9 +55,11 @@ class RecipesListViewModel @Inject constructor(
         } else {
             val startIndex = nextPageUrl?.indexOf("_cont")
             val paginationParam = startIndex?.let {
-                nextPageUrl?.substring(it)?.substring(6)?.substringBefore('&')
+                nextPageUrl
+                    ?.substring(it)
+                    ?.substring(6)
+                    ?.substringBefore('&')
             }
-
 
             viewModelScope.launch {
                 getNextRecipesPageUseCase.invoke(
@@ -67,7 +69,7 @@ class RecipesListViewModel @Inject constructor(
                     )
                 ).collect { result ->
                     result.onSuccess { recipes ->
-                        nextPageUrl = recipes.toUI().nextPageLinks?.nextPageUrl
+                        nextPageUrl = recipes.toUI().nextPageLink?.nextPage?.nextPageUrl
                         _recipesList.value = recipes.recipes?.map { it.toUI() }
                     }.onFailure { throwable ->
                         _handleError.value = throwable.localizedMessage?.let {

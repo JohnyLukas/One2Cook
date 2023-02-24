@@ -7,9 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-data class RecipesUI(
-    @Json(name = "hits")
-    val recipes: List<HitsUI>?,
-    @Json(name = "_links")
-    val nextPageLink: LinkUI?
+data class LinkUI(
+    @Json(name = "next")
+    val nextPage: NextUI?
 ) : Parcelable

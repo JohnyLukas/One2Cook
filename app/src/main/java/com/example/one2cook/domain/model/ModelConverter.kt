@@ -1,14 +1,15 @@
 package com.example.one2cook.domain.model
 
-import com.example.one2cook.presentation.model.HitsUI
-import com.example.one2cook.presentation.model.NextUI
-import com.example.one2cook.presentation.model.RecipeUI
-import com.example.one2cook.presentation.model.RecipesUI
+import com.example.one2cook.presentation.model.*
 
 
 fun Recipes.toUI() = RecipesUI(
         recipes = recipes?.map { it.toUI() },
-        nextPageLinks = nextPageLinks?.toUI()
+        nextPageLink = nextPageLink?.toUI()
+    )
+
+    fun Link.toUI() = LinkUI(
+        nextPage = nextPage?.toUI()
     )
 
     fun Next.toUI() = NextUI(
