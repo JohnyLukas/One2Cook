@@ -42,20 +42,18 @@ class RecipesListFragment : BaseFragment(R.layout.list_recipes_fragment) {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.recipesResponse.collect { recipesList ->
-                    recipesList?.recipes?.let { recipesListAdapter.updateDataSet(it) }
+                viewModel.recipesList.collect { recipesList ->
+                    recipesList?.let { recipesListAdapter.updateDataSet(it) }
                 }
             }
         }
+
         binding.recipeGrid.adapter = recipesListAdapter
 
         binding.recipeGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (!recyclerView.canScrollVertically(1)) {
-                    viewModel.getNewListRecipes(
-                        nameDish = args.dishName,
-                        cont =
-                    )
+                    viewModel.getNewListRecipes(nameDish = args.dishName)
                 }
             }
         })

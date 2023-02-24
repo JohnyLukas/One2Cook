@@ -11,6 +11,6 @@ interface SearchRecipeApi {
     @GET("recipes/v2")
     suspend fun nextRecipesPage(
         @Query("q") query: String,
-        @Query("_cont") cont: String
+        @Query("_cont") paginationParam: String?
     ): RecipesResponse
 }

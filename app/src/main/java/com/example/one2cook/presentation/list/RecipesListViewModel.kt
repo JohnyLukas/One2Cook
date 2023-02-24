@@ -8,7 +8,7 @@ import com.example.one2cook.domain.useCase.GetListRecipeUseCaseParam
 import com.example.one2cook.domain.useCase.GetNextRecipesPageUseCase
 import com.example.one2cook.domain.useCase.GetNextRecipesPageUseCaseParam
 import com.example.one2cook.presentation.base.BaseViewModel
-import com.example.one2cook.presentation.model.RecipesUI
+import com.example.one2cook.presentation.model.HitsUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -21,8 +21,10 @@ class RecipesListViewModel @Inject constructor(
     private val getNextRecipesPageUseCase: GetNextRecipesPageUseCase,
     private val getListRecipeUseCase: GetListRecipeUseCase
 ) : BaseViewModel() {
-    private val _recipesResponse: MutableStateFlow<RecipesUI?> = MutableStateFlow(null)
-    val recipesResponse: StateFlow<RecipesUI?> = _recipesResponse.asStateFlow()
+
+    private val _recipesList: MutableStateFlow<List<HitsUI>?> = MutableStateFlow(null)
+    val recipesList: StateFlow<List<HitsUI>?> = _recipesList.asStateFlow()
+    private var nextPageUrl: String? = null
 
     fun getRecipesByNamedDish(namedDish: String) {
         viewModelScope.launch {
@@ -30,7 +32,8 @@ class RecipesListViewModel @Inject constructor(
                 param = GetListRecipeUseCaseParam(namedDish = namedDish)
             ).collect { result ->
                 result.onSuccess { recipes ->
-                    _recipesResponse.value = recipes.toUI()
+                    nextPageUrl = recipes.toUI().nextPageLinks?.nextPageUrl
+                    _recipesList.value = recipes.recipes?.map { it.toUI() }
                 }.onFailure { throwable ->
                     _handleError.value = throwable.localizedMessage?.let {
                         NetworkException(
@@ -43,26 +46,42 @@ class RecipesListViewModel @Inject constructor(
         }
     }
 
-    // Нужно понять как сюда положить _cont из Next.nextPageUrl
-    fun getNewListRecipes(nameDish: String, conts: String) {
-        val cont = recipesResponse.value?.nextPageLinks?.nextPageUrl ?: "kal"
+    fun getNewListRecipes(nameDish: String) {
+        if (nextPageUrl == null) {
+            _handleError.value = NetworkException(
+                title = "Error",
+                description = "There are no more recipes"
+            )
+        } else {
+            val startIndex = nextPageUrl?.indexOf("_cont")
+            val paginationParam = startIndex?.let {
+                nextPageUrl?.substring(it)?.substring(6)?.substringBefore('&')
+            }
 
-        viewModelScope.launch {
-            getNextRecipesPageUseCase.invoke(
-                param = GetNextRecipesPageUseCaseParam(nameDish = nameDish, cont = cont)
-            ).collect { result ->
-                result.onSuccess { recipes ->
-                    _recipesResponse.value = recipes.toUI()
-                }.onFailure { throwable ->
-                    _handleError.value = throwable.localizedMessage?.let {
-                        NetworkException(
-                            title = throwable.message.toString(),
-                            description = throwable.toString()
-                        )
+
+            viewModelScope.launch {
+                getNextRecipesPageUseCase.invoke(
+                    param = GetNextRecipesPageUseCaseParam(
+                        nameDish = nameDish,
+                        paginationParam = paginationParam
+                    )
+                ).collect { result ->
+                    result.onSuccess { recipes ->
+                        nextPageUrl = recipes.toUI().nextPageLinks?.nextPageUrl
+                        _recipesList.value = recipes.recipes?.map { it.toUI() }
+                    }.onFailure { throwable ->
+                        _handleError.value = throwable.localizedMessage?.let {
+                            NetworkException(
+                                title = throwable.message.toString(),
+                                description = throwable.toString()
+                            )
+                        }
                     }
                 }
             }
+
         }
+
     }
 
 }

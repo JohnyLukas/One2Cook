@@ -17,7 +17,7 @@ class GetNextRecipesPageUseCase @Inject constructor(
     override fun execute(param: GetNextRecipesPageUseCaseParam): Flow<Result<Recipes>> = flow {
         val result = recipeDataSource.nextRecipesPage(
             query = param.nameDish,
-            cont = param.cont
+            paginationParam = param.paginationParam
         )
         emit(Result.success(result))
     }
@@ -25,5 +25,5 @@ class GetNextRecipesPageUseCase @Inject constructor(
 
 data class GetNextRecipesPageUseCaseParam(
     val nameDish: String,
-    val cont: String
+    val paginationParam: String?
 )

@@ -12,7 +12,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.one2cook.R
 import com.example.one2cook.databinding.SearchRecipesFragmentBinding
 import com.example.one2cook.presentation.base.BaseFragment
-import com.example.one2cook.presentation.model.RecipesUI
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

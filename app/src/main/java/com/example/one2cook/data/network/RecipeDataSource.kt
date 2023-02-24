@@ -10,10 +10,10 @@ class RecipeDataSource @Inject constructor(
     suspend fun searchRecipe(query: String): Recipes =
         searchRecipeApi.searchRecipes(query).toDomain()
 
-    suspend fun nextRecipesPage(query: String, cont: String): Recipes =
+    suspend fun nextRecipesPage(query: String, paginationParam: String?): Recipes =
         searchRecipeApi.nextRecipesPage(
             query = query,
-            cont = cont
+            paginationParam = paginationParam
         ).toDomain()
 
 }
