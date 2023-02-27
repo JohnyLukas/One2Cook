@@ -54,9 +54,9 @@ class RecipesListViewModel @Inject constructor(
             )
         } else {
             val startIndex = nextPageUrl?.indexOf("_cont")
-            val paginationParam = startIndex?.let {
+            val paginationParam = startIndex?.let { index ->
                 nextPageUrl
-                    ?.substring(it)
+                    ?.substring(index)
                     ?.substring(6)
                     ?.substringBefore('&')
             }
