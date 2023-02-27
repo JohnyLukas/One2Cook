@@ -23,5 +23,7 @@ data class RecipeResponse(
     @Json(name = "ingredientLines")
     val ingredients: List<String>? = null,
     @Json(name = "totalTime")
-    val totalTime: Double? = null
+    val totalTime: Double? = null,
+    @Json(name = "yield")
+    val yield: Int? = null
 ) : Parcelable

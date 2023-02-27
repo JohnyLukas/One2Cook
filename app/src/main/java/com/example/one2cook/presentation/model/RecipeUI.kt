@@ -23,5 +23,7 @@ data class RecipeUI(
     @Json(name = "ingredientLines")
     val ingredients: List<String>,
     @Json(name = "totalTime")
-    val totalTime: Double
+    val totalTime: Double,
+    @Json(name = "yield")
+    val yield: Int
 ) : Parcelable

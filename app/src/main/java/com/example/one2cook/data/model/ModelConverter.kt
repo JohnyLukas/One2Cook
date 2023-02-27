@@ -28,5 +28,6 @@ fun RecipesResponse.toDomain() = Recipes(
         calories = calories ?: 0.0,
         cuisineType = cuisineType ?: listOf("Cuisine type is unknown"),
         ingredients = ingredients ?: listOf("Ingredients is unknown"),
-        totalTime = totalTime ?: 0.0
+        totalTime = totalTime ?: 0.0,
+        yield = yield ?: 0
     )

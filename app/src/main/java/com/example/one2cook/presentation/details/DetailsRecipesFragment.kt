@@ -29,7 +29,10 @@ class DetailsRecipesFragment: BaseFragment(R.layout.recipe_details_fragment) {
 
         recipeTitleTextView.text = args.recipe.titleRecipe
 
-        cuisineTypeTextView.text = args.recipe.cuisineType.toString()
+        cuisineTypeTextView.text = getString(
+            R.string.cuisine_type,
+            args.recipe.cuisineType
+        )
 
         cookingTimeTextView.text = getString(
             R.string.cooking_time,
@@ -38,7 +41,12 @@ class DetailsRecipesFragment: BaseFragment(R.layout.recipe_details_fragment) {
 
         caloriesTextView.text = getString(
             R.string.calories,
-            args.recipe.calories.toString()
+            args.recipe.calories.toString().substringBefore(".")
+        )
+
+        yieldTextView.text = getString(
+            R.string.yield,
+            args.recipe.yield.toString()
         )
 
         ingredientsTextView.text = args.recipe.ingredients.toString()
@@ -51,7 +59,7 @@ class DetailsRecipesFragment: BaseFragment(R.layout.recipe_details_fragment) {
         sourceTextView.setOnClickListener {
             val browseIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("http://${args.recipe.urlSource}")
+                Uri.parse(args.recipe.urlSource)
             )
             startActivity(browseIntent)
         }
