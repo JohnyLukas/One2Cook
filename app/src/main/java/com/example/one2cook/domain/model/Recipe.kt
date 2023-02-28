@@ -18,8 +18,6 @@ data class Recipe(
     val urlSource: String,
     @Json(name = "calories")
     val calories: Double,
-    @Json(name = "cuisineType")
-    val cuisineType: List<String>,
     @Json(name = "ingredientLines")
     val ingredients: List<String>,
     @Json(name = "totalTime")

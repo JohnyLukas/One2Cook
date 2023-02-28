@@ -17,19 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/recipeTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/nunito_bold"
-        android:text="@string/title_dishes"
-        android:textColor="#E9000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
@@ -46,83 +33,46 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/recipes_list_background"
-            >
+            android:background="@drawable/recipes_list_background">
 
             <TextView
-                android:id="@+id/cuisineTypeTextView"
-                android:layout_width="wrap_content"
+                android:id="@+id/cookingTimeTextView"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="42dp"
                 android:fontFamily="@font/nunito_semibold"
-                android:text="@string/cuisine_type"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cookingTimeTextView" />
-
-            <TextView
-                android:id="@+id/cookingTimeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="42dp"
-                android:fontFamily="@font/nunito_semibold"
+                android:singleLine="false"
                 android:text="@string/cooking_time"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/recipeTitleTextView" />
 
             <TextView
                 android:id="@+id/sourceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="70dp"
                 android:fontFamily="@font/nunito_semibold"
                 android:text="@string/source"
+                android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/ingredientsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="25dp"
-                android:fontFamily="@font/nunito_light"
-                android:text="@string/ingredients"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients" />
-
-            <TextView
-                android:id="@+id/ingredients"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/nunito_semibold"
-                android:nestedScrollingEnabled="true"
-                android:singleLine="false"
-                android:text="@string/ingredients"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/yieldTextView" />
 
             <TextView
                 android:id="@+id/caloriesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_semibold"
                 android:text="@string/calories"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/recipeTitleTextView" />
 
             <TextView
                 android:id="@+id/yieldTextView"
@@ -132,9 +82,49 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_semibold"
                 android:text="@string/yield"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/caloriesTextView" />
+
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginBottom="8dp"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/sourceTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yieldTextView">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/ingredientsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.MaterialComponents.Light">
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/recipeTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="42dp"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="@string/title_dishes"
+                android:textColor="#E9000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

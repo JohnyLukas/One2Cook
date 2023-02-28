@@ -26,7 +26,6 @@ fun Recipes.toUI() = RecipesUI(
         sourceRecipe = sourceRecipe,
         urlSource = urlSource,
         calories = calories,
-        cuisineType = cuisineType,
         ingredients = ingredients,
         totalTime = totalTime,
         yield = yield

@@ -59,6 +59,7 @@ def bindingDelegateVersion = "1.5.6"
 def roomVersion = "2.5.0"
 def materialVersion = "1.8.0"
 def glideVersion = "4.14.2"
+def browserVersion = "1.5.0"
 
 dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
@@ -94,6 +95,8 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    implementation "androidx.browser:browser:$browserVersion"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
