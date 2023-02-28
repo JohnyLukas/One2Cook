@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.one2cook.R
 import com.example.one2cook.databinding.ListItemRecipeBinding
 import com.example.one2cook.presentation.model.HitsUI
 import com.example.one2cook.presentation.model.RecipeUI
@@ -38,6 +39,7 @@ class RecipesListAdapter(
             Glide.with(root)
                 .load(hitsUI.recipeUI?.image)
                 .centerCrop()
+                .placeholder(R.drawable.place_holder)
                 .into(imageRecipe)
 
             titleRecipeTextView.text = hitsUI.recipeUI?.titleRecipe

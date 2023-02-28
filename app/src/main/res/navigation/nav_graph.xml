@@ -35,5 +35,9 @@
         <argument
             android:name="recipe"
             app:argType="com.example.one2cook.presentation.model.RecipeUI" />
+        <action
+            android:id="@+id/action_detailsRecipesFragment_to_listRecipesFragment"
+            app:destination="@id/listRecipesFragment"
+            app:popUpTo="@id/searchRecipesFragment" />
     </fragment>
 </navigation>

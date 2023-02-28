@@ -26,7 +26,7 @@ fun RecipesResponse.toDomain() = Recipes(
         sourceRecipe = sourceRecipe ?: "Source is missing",
         urlSource = urlSource ?: "https://http.cat/204", //Replace on image "code 204 error",
         calories = calories ?: 0.0,
-        cuisineType = cuisineType ?: listOf("Cuisine type is unknown"),
         ingredients = ingredients ?: listOf("Ingredients is unknown"),
-        totalTime = totalTime ?: 0.0
+        totalTime = totalTime ?: 0.0,
+        yield = yield ?: 0
     )
