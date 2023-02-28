@@ -8,18 +8,22 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Named
 
-class GetListRecipeUseCase @Inject constructor(
+class GetNextRecipesPageUseCase @Inject constructor(
     private val recipeDataSource: RecipeDataSource,
     @Named("IO")
     override val dispatcher: CoroutineDispatcher
-) : FlowUseCase<GetListRecipeUseCaseParam, Recipes> {
+) : FlowUseCase<GetNextRecipesPageUseCaseParam, Recipes> {
 
-    override fun execute(param: GetListRecipeUseCaseParam): Flow<Result<Recipes>> = flow {
-        val result = recipeDataSource.searchRecipe(param.namedDish)
+    override fun execute(param: GetNextRecipesPageUseCaseParam): Flow<Result<Recipes>> = flow {
+        val result = recipeDataSource.nextRecipesPage(
+            query = param.nameDish,
+            paginationParam = param.paginationParam
+        )
         emit(Result.success(result))
     }
 }
 
-data class GetListRecipeUseCaseParam(
-    val namedDish: String
+data class GetNextRecipesPageUseCaseParam(
+    val nameDish: String,
+    val paginationParam: String?
 )

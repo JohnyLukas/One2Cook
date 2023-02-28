@@ -21,7 +21,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", BASE_URL, "\"https://api.edamam.com/api/recipes/v2/\""
+        buildConfigField "String", BASE_URL, "\"https://api.edamam.com/api/\""
         buildConfigField "String", API_KEY, "\"99997c5c694043c620b4b6f6e325ae30\""
         buildConfigField "String", APP_ID, "\"20eda7b6\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

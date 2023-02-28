@@ -13,6 +13,7 @@ class SearchRecipeInterceptor: Interceptor {
         val newUrl: HttpUrl = originalRequest.url.newBuilder()
             .addQueryParameter("app_id", BuildConfig.APP_ID)
             .addQueryParameter("app_key", BuildConfig.API_KEY)
+            .addQueryParameter("type", "public")
             .build()
 
         val newRequest: Request = originalRequest.newBuilder()

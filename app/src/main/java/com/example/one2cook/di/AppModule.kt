@@ -10,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Named
@@ -25,8 +26,17 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(searchRecipeInterceptor: SearchRecipeInterceptor) = OkHttpClient.Builder()
+    fun provideOkHttpLoggingInterceptor() =
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(
+        searchRecipeInterceptor: SearchRecipeInterceptor,
+        okHttpLoggingInterceptor: HttpLoggingInterceptor
+    ) = OkHttpClient.Builder()
         .addInterceptor(searchRecipeInterceptor)
+        .addInterceptor(okHttpLoggingInterceptor)
         .build()
 
     @Provides

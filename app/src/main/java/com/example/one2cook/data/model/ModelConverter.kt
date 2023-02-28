@@ -5,7 +5,11 @@ import com.example.one2cook.domain.model.*
 
 fun RecipesResponse.toDomain() = Recipes(
         recipes = recipes?.map { it.toDomain() },
-        nextPageLinks = nextPageLinks?.toDomain()
+        nextPageLink = nextPageLink?.toDomain()
+    )
+
+    fun LinkResponse.toDomain() = Link(
+        nextPage = nextPage?.toDomain()
     )
 
     fun NextResponse.toDomain() = Next(

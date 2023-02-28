@@ -1,18 +1,13 @@
 package com.example.one2cook.presentation.search
 
 import androidx.core.text.isDigitsOnly
-import androidx.lifecycle.viewModelScope
-import com.example.one2cook.data.network.common.NetworkException
-import com.example.one2cook.domain.model.toUI
 import com.example.one2cook.domain.useCase.GetListRecipeUseCase
-import com.example.one2cook.domain.useCase.GetListRecipeUseCaseParam
 import com.example.one2cook.presentation.base.BaseViewModel
 import com.example.one2cook.presentation.model.RecipesUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,38 +17,19 @@ class SearchRecipesViewModel @Inject constructor(
     private val _handleErrorInput: MutableStateFlow<String?> = MutableStateFlow(null)
     val handleErrorInput: StateFlow<String?> = _handleErrorInput.asStateFlow()
 
-    private val _recipesResponse: MutableStateFlow<RecipesUI?> = MutableStateFlow(null)
-    val recipesResponse: StateFlow<RecipesUI?> = _recipesResponse.asStateFlow()
+    private val _namedDish: MutableStateFlow<String?> = MutableStateFlow(null)
+    val namedDish: StateFlow<String?> = _namedDish.asStateFlow()
 
     fun checkInputError(namedDish: String?) {
         when {
             namedDish == null -> _handleErrorInput.value = "Please enter dish name"
             namedDish.isDigitsOnly() -> _handleErrorInput.value = "Please check your input"
-            else -> getRecipesByNamedDish(namedDish)
+            else -> _namedDish.value = namedDish
         }
     }
 
-    private fun getRecipesByNamedDish(namedDish: String) {
-        viewModelScope.launch {
-            getListRecipeUseCase.invoke(
-                param = GetListRecipeUseCaseParam(namedDish = namedDish)
-            ).collect { result ->
-                result.onSuccess { recipes ->
-                    _recipesResponse.value = recipes.toUI()
-                }.onFailure { throwable ->
-                    _handleError.value = throwable.localizedMessage?.let {
-                        NetworkException(
-                            title = throwable.message.toString(),
-                            description = throwable.toString()
-                        )
-                    }
-                }
-            }
-        }
-    }
-
-    fun clearBinResponse() {
-        _recipesResponse.value = null
+    fun clearNamedDish() {
+        _namedDish.value = null
     }
 
 }
