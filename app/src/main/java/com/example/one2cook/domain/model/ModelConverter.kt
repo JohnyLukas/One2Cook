@@ -1,5 +1,6 @@
 package com.example.one2cook.domain.model
 
+import com.example.one2cook.data.model.entity.FavoritesRecipeEntity
 import com.example.one2cook.presentation.model.*
 
 
@@ -30,3 +31,27 @@ fun Recipes.toUI() = RecipesUI(
         totalTime = totalTime,
         yield = yield
     )
+
+fun FavoritesRecipe.toEntity() = FavoritesRecipeEntity(
+    id = id,
+    titleRecipe = titleRecipe,
+    sourceRecipe = sourceRecipe,
+    image = image,
+    urlSource = urlSource,
+    calories = calories,
+    ingredients = ingredients,
+    totalTime = totalTime,
+    yield = yield
+)
+
+fun FavoritesRecipe.toUI() = FavoritesRecipeUI(
+    id = id,
+    titleRecipe = titleRecipe,
+    sourceRecipe = sourceRecipe,
+    image = image,
+    urlSource = urlSource,
+    calories = calories,
+    ingredients = ingredients,
+    totalTime = totalTime,
+    yield = yield
+)

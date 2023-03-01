@@ -14,6 +14,7 @@ android {
     def BASE_URL = "BASE_URL"
     def API_KEY = "API_KEY"
     def APP_ID = "APP_ID"
+    def DATABASE_NAME = "DATABASE_NAME"
 
     defaultConfig {
         applicationId "com.example.one2cook"
@@ -24,6 +25,7 @@ android {
         buildConfigField "String", BASE_URL, "\"https://api.edamam.com/api/\""
         buildConfigField "String", API_KEY, "\"99997c5c694043c620b4b6f6e325ae30\""
         buildConfigField "String", APP_ID, "\"20eda7b6\""
+        buildConfigField "String", DATABASE_NAME, "\"recipes-database\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

@@ -1,5 +1,6 @@
 package com.example.one2cook.data.model
 
+import com.example.one2cook.data.model.entity.FavoritesRecipeEntity
 import com.example.one2cook.data.model.response.*
 import com.example.one2cook.domain.model.*
 
@@ -30,3 +31,15 @@ fun RecipesResponse.toDomain() = Recipes(
         totalTime = totalTime ?: 0.0,
         yield = yield ?: 0
     )
+
+fun FavoritesRecipeEntity.toDomain() = FavoritesRecipe(
+    id = id,
+    titleRecipe = titleRecipe,
+    sourceRecipe = sourceRecipe,
+    image = image,
+    urlSource = urlSource,
+    calories = calories,
+    ingredients = ingredients,
+    totalTime = totalTime,
+    yield = yield
+)

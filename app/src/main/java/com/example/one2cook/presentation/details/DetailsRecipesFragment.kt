@@ -74,6 +74,13 @@ class DetailsRecipesFragment : BaseFragment(R.layout.recipe_details_fragment) {
                 customTabsIntent.launchUrl(context, Uri.parse(args.recipe.urlSource))
             }
         }
+
+        addToFavorites.setOnCheckedChangeListener { button, isChecked ->
+            if (isChecked && button.isPressed) {
+                viewModel.addRecipeToFavorites(args.recipe)
+            }
+        }
+
     }
 
 }
