@@ -12,13 +12,12 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsRecipesViewModel @Inject constructor(
     private val addRecipeToFavoritesUseCase: AddRecipeToFavoritesUseCase
-): BaseViewModel() {
+) : BaseViewModel() {
     fun addRecipeToFavorites(recipe: RecipeUI) {
         viewModelScope.launch {
-            addRecipeToFavoritesUseCase(
-                param = recipe.toDomain()
-            )
+            addRecipeToFavoritesUseCase(param = recipe.toDomain())
         }
+
     }
 
 }

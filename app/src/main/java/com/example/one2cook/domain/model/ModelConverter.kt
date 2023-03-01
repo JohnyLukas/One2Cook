@@ -34,6 +34,7 @@ fun Recipes.toUI() = RecipesUI(
 
 fun FavoritesRecipe.toEntity() = FavoritesRecipeEntity(
     id = id,
+    isFavorites = isFavorites,
     titleRecipe = titleRecipe,
     sourceRecipe = sourceRecipe,
     image = image,
@@ -46,6 +47,7 @@ fun FavoritesRecipe.toEntity() = FavoritesRecipeEntity(
 
 fun FavoritesRecipe.toUI() = FavoritesRecipeUI(
     id = id,
+    isFavorites = isFavorites,
     titleRecipe = titleRecipe,
     sourceRecipe = sourceRecipe,
     image = image,

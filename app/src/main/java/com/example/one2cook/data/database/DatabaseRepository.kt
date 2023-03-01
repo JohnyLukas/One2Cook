@@ -13,4 +13,7 @@ class DatabaseRepository @Inject constructor(
 
     suspend fun addRecipe(favoritesRecipeEntity: FavoritesRecipeEntity) =
         recipesDao.addRecipe(favoritesRecipeEntity)
+
+    suspend fun deleteRecipe(favoritesRecipeEntity: FavoritesRecipeEntity) =
+        recipesDao.deleteRecipe(favoritesRecipeEntity)
 }

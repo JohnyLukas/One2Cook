@@ -18,11 +18,13 @@ class AddRecipeToFavoritesUseCase @Inject constructor(
 
     override fun execute(param: Recipe): Flow<Result<FavoritesRecipeEntity>> = flow {
         val listRecipes = databaseRepository.getRecipes()
+        // Finding a duplicate in the database
         val checkDuplicate = listRecipes.find { it.titleRecipe == param.titleRecipe }
         if(checkDuplicate == null) {
             databaseRepository.addRecipe(
                 FavoritesRecipeEntity(
                     id = UUID.randomUUID(),
+                    isFavorites = true,
                     titleRecipe = param.titleRecipe,
                     image = param.image,
                     sourceRecipe = param.sourceRecipe,

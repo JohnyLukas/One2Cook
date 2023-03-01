@@ -34,6 +34,7 @@ fun RecipesResponse.toDomain() = Recipes(
 
 fun FavoritesRecipeEntity.toDomain() = FavoritesRecipe(
     id = id,
+    isFavorites = isFavorites,
     titleRecipe = titleRecipe,
     sourceRecipe = sourceRecipe,
     image = image,
