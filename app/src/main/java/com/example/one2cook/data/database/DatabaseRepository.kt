@@ -8,7 +8,7 @@ import javax.inject.Inject
 class DatabaseRepository @Inject constructor(
     private val recipesDao: RecipesDao
 ) {
-    fun getRecipes(): List<FavoritesRecipe> =
+    suspend fun getRecipes(): List<FavoritesRecipe> =
         recipesDao.getRecipes().map { it.toDomain() }
 
     suspend fun addRecipe(favoritesRecipeEntity: FavoritesRecipeEntity) =

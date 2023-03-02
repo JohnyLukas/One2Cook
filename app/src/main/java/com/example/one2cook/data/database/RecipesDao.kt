@@ -9,7 +9,7 @@ import com.example.one2cook.data.model.entity.FavoritesRecipeEntity
 @Dao
 interface RecipesDao {
     @Query("SELECT * FROM favoritesRecipeEntity")
-    fun getRecipes(): List<FavoritesRecipeEntity>
+    suspend fun getRecipes(): List<FavoritesRecipeEntity>
 
     @Insert
     suspend fun addRecipe(favoritesRecipeEntity: FavoritesRecipeEntity)
