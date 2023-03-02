@@ -21,7 +21,7 @@ class FavoritesViewModel @Inject constructor(
 
     fun getFavoritesRecipes() {
         viewModelScope.launch {
-            getFavoritesRecipesUseCase.invoke(Unit).collect() { result ->
+            getFavoritesRecipesUseCase.invoke(Unit).collect { result ->
                 result.onSuccess { favoritesList ->
                     _recipesList.value = favoritesList
                 }.onFailure { throwable ->

@@ -76,10 +76,8 @@ class FavoritesDetailsFragment : BaseFragment(R.layout.recipe_details_fragment_f
             }
         }
 
-        addToFavorites.isChecked
-
         addToFavorites.setOnCheckedChangeListener { button, isChecked ->
-            if (!isChecked && button.isPressed) {
+            if (isChecked && button.isPressed) {
                 viewModel.deleteRecipe(args.recipe)
             }
         }
