@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.one2cook.R
 import com.example.one2cook.databinding.RecipeDetailsFragmentFavoritesBinding
 import com.example.one2cook.presentation.base.BaseFragment
-import com.example.one2cook.presentation.details.DetailsRecipesFragmentDirections
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,8 +54,8 @@ class FavoritesDetailsFragment : BaseFragment(R.layout.recipe_details_fragment_f
             chip.id = index
             chip.setOnClickListener {
                 findNavController().navigate(
-                    DetailsRecipesFragmentDirections
-                        .actionDetailsRecipesFragmentToListRecipesFragment(
+                    FavoritesDetailsFragmentDirections
+                        .actionFavoritesDetailsFragmentToListRecipesFragment(
                             chip.text.toString()
                         )
                 )
@@ -77,7 +76,7 @@ class FavoritesDetailsFragment : BaseFragment(R.layout.recipe_details_fragment_f
         }
 
         addToFavorites.setOnCheckedChangeListener { button, isChecked ->
-            if (isChecked && button.isPressed) {
+            if (!isChecked && button.isPressed) {
                 viewModel.deleteRecipe(args.recipe)
             }
         }

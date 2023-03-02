@@ -3,14 +3,15 @@ package com.example.one2cook.domain.useCase
 import com.example.one2cook.data.database.DatabaseRepository
 import com.example.one2cook.data.model.entity.FavoritesRecipeEntity
 import com.example.one2cook.domain.model.Recipe
+import com.example.one2cook.domain.useCase.base.SuspendUseCase
 import java.util.*
 import javax.inject.Inject
 
 class AddRecipeToFavoritesUseCase @Inject constructor(
     private val databaseRepository: DatabaseRepository
-) : SuspendUseCase<Recipe> {
+) : SuspendUseCase<Recipe, Unit> {
 
-    override suspend fun invoke(param: Recipe) {
+    override suspend fun execute(param: Recipe) {
         val favoritesList = databaseRepository.getRecipes()
         // Finding a duplicate in the database
         val checkDuplicate = favoritesList.find { it.titleRecipe == param.titleRecipe }
