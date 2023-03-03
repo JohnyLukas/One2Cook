@@ -1,4 +1,4 @@
-package com.example.one2cook.domain.useCase
+package com.example.one2cook.domain.useCase.base
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

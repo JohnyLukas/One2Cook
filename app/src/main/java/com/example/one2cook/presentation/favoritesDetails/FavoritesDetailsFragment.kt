@@ -1,4 +1,4 @@
-package com.example.one2cook.presentation.details
+package com.example.one2cook.presentation.favoritesDetails
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,19 +10,19 @@ import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.one2cook.R
-import com.example.one2cook.databinding.RecipeDetailsFragmentBinding
+import com.example.one2cook.databinding.RecipeDetailsFragmentFavoritesBinding
 import com.example.one2cook.presentation.base.BaseFragment
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailsRecipesFragment : BaseFragment(R.layout.recipe_details_fragment) {
-    override val viewModel: DetailsRecipesViewModel by viewModels()
-    private val binding: RecipeDetailsFragmentBinding by viewBinding()
-    private val args: DetailsRecipesFragmentArgs by navArgs()
+class FavoritesDetailsFragment : BaseFragment(R.layout.recipe_details_fragment_favorites) {
+    override val viewModel: FavoritesDetailsViewModel by viewModels()
+    private val binding: RecipeDetailsFragmentFavoritesBinding by viewBinding()
+    private val args: FavoritesDetailsFragmentArgs by navArgs()
     private val customTabsIntent = CustomTabsIntent.Builder().build()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding){
         super.onViewCreated(view, savedInstanceState)
 
         Glide.with(root)
@@ -54,8 +54,8 @@ class DetailsRecipesFragment : BaseFragment(R.layout.recipe_details_fragment) {
             chip.id = index
             chip.setOnClickListener {
                 findNavController().navigate(
-                    DetailsRecipesFragmentDirections
-                        .actionDetailsRecipesFragmentToListRecipesFragment(
+                    FavoritesDetailsFragmentDirections
+                        .actionFavoritesDetailsFragmentToListRecipesFragment(
                             chip.text.toString()
                         )
                 )
@@ -76,11 +76,10 @@ class DetailsRecipesFragment : BaseFragment(R.layout.recipe_details_fragment) {
         }
 
         addToFavorites.setOnCheckedChangeListener { button, isChecked ->
-            if (isChecked && button.isPressed) {
-                viewModel.addRecipeToFavorites(args.recipe)
+            if (!isChecked && button.isPressed) {
+                viewModel.deleteRecipe(args.recipe)
             }
         }
-
     }
 
 }

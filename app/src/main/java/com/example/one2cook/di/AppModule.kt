@@ -1,11 +1,16 @@
 package com.example.one2cook.di
 
+import android.content.Context
+import androidx.room.Room
 import com.example.one2cook.BuildConfig
+import com.example.one2cook.data.database.RecipesDao
+import com.example.one2cook.data.database.RecipesDatabase
 import com.example.one2cook.data.network.SearchRecipeApi
 import com.example.one2cook.data.network.SearchRecipeInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -59,5 +64,19 @@ object AppModule {
     @Singleton
     @Named("IO")
     fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
+
+    @Provides
+    @Singleton
+    fun provideRoom(@ApplicationContext context: Context): RecipesDatabase = Room
+        .databaseBuilder(
+            context,
+            RecipesDatabase::class.java,
+            BuildConfig.DATABASE_NAME
+        ).build()
+
+    @Provides
+    @Singleton
+    fun provideRecipesDao(dataBase: RecipesDatabase): RecipesDao =
+        dataBase.getRecipesDao()
 
 }

@@ -58,6 +58,12 @@ class SearchRecipesFragment: BaseFragment(R.layout.search_recipes_fragment) {
         searchButton.setOnClickListener {
             viewModel.checkInputError(textInputNamedDishEditText.text.toString())
         }
+
+        favoritesButton.setOnClickListener {
+            findNavController().navigate(
+                SearchRecipesFragmentDirections.actionSearchRecipesFragmentToFavoritesFragment()
+            )
+        }
     }
 
 }

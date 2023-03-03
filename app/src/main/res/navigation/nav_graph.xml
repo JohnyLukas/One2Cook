@@ -14,6 +14,9 @@
         <action
             android:id="@+id/actionSearchFragmentToListFragment"
             app:destination="@id/listRecipesFragment" />
+        <action
+            android:id="@+id/action_searchRecipesFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/listRecipesFragment"
@@ -37,6 +40,28 @@
             app:argType="com.example.one2cook.presentation.model.RecipeUI" />
         <action
             android:id="@+id/action_detailsRecipesFragment_to_listRecipesFragment"
+            app:destination="@id/listRecipesFragment"
+            app:popUpTo="@id/searchRecipesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.one2cook.presentation.favoritesList.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/list_favorites_fragment">
+        <action
+            android:id="@+id/action_favoritesFragment_to_favoritesDetailsFragment"
+            app:destination="@id/favoritesDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesDetailsFragment"
+        android:name="com.example.one2cook.presentation.favoritesDetails.FavoritesDetailsFragment"
+        android:label="FavoritesDetailsFragment"
+        tools:layout="@layout/recipe_details_fragment_favorites" >
+        <argument
+            android:name="recipe"
+            app:argType="com.example.one2cook.presentation.model.FavoritesRecipeUI" />
+        <action
+            android:id="@+id/action_favoritesDetailsFragment_to_listRecipesFragment"
             app:destination="@id/listRecipesFragment"
             app:popUpTo="@id/searchRecipesFragment" />
     </fragment>
