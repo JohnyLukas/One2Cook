@@ -80,6 +80,11 @@ class FavoritesDetailsFragment : BaseFragment(R.layout.recipe_details_fragment_f
                 viewModel.deleteRecipe(args.recipe)
             }
         }
+
+        buttonBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
     }
 
 }

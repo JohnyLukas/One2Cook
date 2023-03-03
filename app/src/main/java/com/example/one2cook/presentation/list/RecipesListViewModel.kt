@@ -3,7 +3,7 @@ package com.example.one2cook.presentation.list
 import androidx.lifecycle.viewModelScope
 import com.example.one2cook.data.network.common.NetworkException
 import com.example.one2cook.domain.model.toUI
-import com.example.one2cook.domain.useCase.GetListRecipeUseCase
+import com.example.one2cook.domain.useCase.GetRecipesByDishUseCase
 import com.example.one2cook.domain.useCase.GetListRecipeUseCaseParam
 import com.example.one2cook.domain.useCase.GetNextRecipesPageUseCase
 import com.example.one2cook.domain.useCase.GetNextRecipesPageUseCaseParam
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RecipesListViewModel @Inject constructor(
     private val getNextRecipesPageUseCase: GetNextRecipesPageUseCase,
-    private val getListRecipeUseCase: GetListRecipeUseCase
+    private val getRecipesByDishUseCase: GetRecipesByDishUseCase,
 ) : BaseViewModel() {
 
     private val _recipesList: MutableStateFlow<List<HitsUI>?> = MutableStateFlow(null)
@@ -28,7 +28,7 @@ class RecipesListViewModel @Inject constructor(
 
     fun getRecipesByNamedDish(namedDish: String) {
         viewModelScope.launch {
-            getListRecipeUseCase.invoke(
+            getRecipesByDishUseCase.invoke(
                 param = GetListRecipeUseCaseParam(namedDish = namedDish)
             ).collect { result ->
                 result.onSuccess { recipes ->

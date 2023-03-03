@@ -81,6 +81,10 @@ class DetailsRecipesFragment : BaseFragment(R.layout.recipe_details_fragment) {
             }
         }
 
+        buttonBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
     }
 
 }
